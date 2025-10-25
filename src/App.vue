@@ -36,20 +36,20 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 
-const fortunes = [
+const fortunes: string[] = [
   '🌾 보름달처럼 풍성한 복이 당신에게 가득하길!',
   '🍡 가족과 웃음이 가득한 한가위 되세요.',
-  '🐇 행복이 쫀득쫀득하게 붙을 거예요!',
+  '🐇 행복이 쫀쫀하게 붙을 거예요!',
   '🌕 이번 추석엔 당신의 소원이 환하게 이뤄질 거예요.',
   '💫 평안과 사랑이 함께하는 명절 되세요!',
 ]
 
 const showFortune = ref(false)
-const fortuneMessage = ref('')
+const fortuneMessage = ref<string>('')
 
 const revealFortune = () => {
   showFortune.value = true
-  fortuneMessage.value = fortunes[Math.floor(Math.random() * fortunes.length)]
+  fortuneMessage.value = fortunes[Math.floor(Math.random() * fortunes.length)] ?? ''
 }
 
 const randomStar = () => {
